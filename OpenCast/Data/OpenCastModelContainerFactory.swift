@@ -27,7 +27,8 @@ enum OpenCastModelContainerFactory {
             AdFreePassQueueItemRecord.self,
             UpNextQueueItemRecord.self,
             PlaylistRecord.self,
-            PlaylistItemRecord.self
+            PlaylistItemRecord.self,
+            EpisodeNoteRecord.self
         ])
     }
 
@@ -47,14 +48,19 @@ enum OpenCastModelContainerFactory {
             AdFreePassQueueItemRecord.self,
             UpNextQueueItemRecord.self,
             PlaylistRecord.self,
-            PlaylistItemRecord.self
+            PlaylistItemRecord.self,
+            EpisodeNoteRecord.self
         ])
     }
 
     static func make(inMemory: Bool = false) throws -> ModelContainer {
+        #if OPENCAST_PERSONAL_TEAM
+        let syncedCloudKitDatabase: ModelConfiguration.CloudKitDatabase = .none
+        #else
         let syncedCloudKitDatabase: ModelConfiguration.CloudKitDatabase = inMemory
             ? .none
             : .private(cloudKitContainerIdentifier)
+        #endif
 
         let syncedConfiguration = ModelConfiguration(
             syncedConfigurationName,

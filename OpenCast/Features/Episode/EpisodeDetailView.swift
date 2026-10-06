@@ -208,6 +208,10 @@ struct EpisodeDetailView: View {
                     )
                 }
 
+                EpisodeNotesSection(episodeID: episode.episodeID) { timestamp in
+                    seekToTimestamp(timestamp, episode: episode)
+                }
+
                 // Creator metadata wins (D3) at render time too: an analysis
                 // generated while chapters_url was still unpopulated (the
                 // pre-upgrade cache window) stops rendering as soon as a feed

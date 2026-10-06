@@ -745,7 +745,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = OpenCastWidgets/OpenCastWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 291;
 				DEVELOPMENT_TEAM = "";
@@ -754,7 +754,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = OpenCast;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -780,7 +780,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = OpenCast;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -921,7 +921,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconOcean AppIconOceanLight AppIconSunset AppIconHoney AppIconRose AppIconViolet AppIconLagoon AppIconFern AppIconGraphite AppIconMidnight AppIconAbyss";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = OpenCast/Resources/OpenCast.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 291;
 				DEVELOPMENT_TEAM = "";
@@ -935,8 +935,9 @@
 				MARKETING_VERSION = 2026.10.1;
 				OPENCAST_APP_STORE_SCREENSHOT_FIXTURE_OUTPUT_DIR = "$(DERIVED_FILE_DIR)/AppStoreScreenshotFixturesDisabled";
 				OPENCAST_INCLUDE_APP_STORE_SCREENSHOT_FIXTURES = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast;
 				PRODUCT_NAME = OpenCast;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) OPENCAST_PERSONAL_TEAM";
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -964,7 +965,7 @@
 				MARKETING_VERSION = 2026.10.1;
 				OPENCAST_APP_STORE_SCREENSHOT_FIXTURE_OUTPUT_DIR = "$(DERIVED_FILE_DIR)/AppStoreScreenshotFixturesDisabled";
 				OPENCAST_INCLUDE_APP_STORE_SCREENSHOT_FIXTURES = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast;
 				PRODUCT_NAME = OpenCast;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -988,7 +989,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
@@ -1010,7 +1011,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
@@ -1032,7 +1033,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.uitests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
@@ -1053,7 +1054,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.uitests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
@@ -1141,7 +1142,7 @@
 				MARKETING_VERSION = 2026.10.1;
 				OPENCAST_APP_STORE_SCREENSHOT_FIXTURE_OUTPUT_DIR = "$(DERIVED_FILE_DIR)/AppStoreScreenshotFixturesDisabled";
 				OPENCAST_INCLUDE_APP_STORE_SCREENSHOT_FIXTURES = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast;
 				PRODUCT_NAME = OpenCast;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -1166,7 +1167,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -1188,7 +1189,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.uitests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -1213,7 +1214,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.NotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1240,7 +1241,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.NotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1266,7 +1267,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.NotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
@@ -1291,7 +1292,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.notificationservicetests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.notificationservicetests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
@@ -1311,7 +1312,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.notificationservicetests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.notificationservicetests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
@@ -1331,7 +1332,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.notificationservicetests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.notificationservicetests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -1353,7 +1354,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = OpenCast;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1382,7 +1383,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.NotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -1410,7 +1411,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.NotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -1437,7 +1438,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2026.10.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.connor.opencast.NotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shreyas208.opencast.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";

@@ -8,8 +8,12 @@ struct CloudKitAccountStatusProvider: CloudKitAccountStatusProviding {
     }
 
     func accountStatus() async throws -> SyncAccountStatus {
+        #if OPENCAST_PERSONAL_TEAM
+        return .restricted
+        #else
         let status = try await CKContainer(identifier: containerIdentifier).accountStatus()
         return SyncAccountStatus(cloudKitAccountStatus: status)
+        #endif
     }
 }
 

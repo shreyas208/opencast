@@ -13,6 +13,8 @@ struct NowPlayingView: View {
     @State private var playPauseFeedback = 0
     @State private var skipFeedback = 0
     @State private var autoSkipFeedback = 0
+    @State private var notePlaybackResumeDraft: EpisodeNoteDraft?
+    @State private var noteDraft: EpisodeNoteDraft?
     @State private var utilitySheet: PlayerUtilitySheet?
     @State private var isVoiceBoostEnabled = true
     @State private var showsAutoSkipPill = false
@@ -99,7 +101,7 @@ struct NowPlayingView: View {
                         .layoutPriority(0)
 
                         ZStack(alignment: .top) {
-                            NowPlayingProgressSection()
+                            NowPlayingProgressSection(episodeID: episode.id.rawValue)
                                 .padding(.top, accessibilityReduceMotion ? 30 : 0)
 
                             if showsAutoSkipPill || pinsAutoSkipPill {
@@ -151,6 +153,15 @@ struct NowPlayingView: View {
                         )
                         .padding(.top, utilityTopPadding)
                         .layoutPriority(1)
+
+                        ViewThatFits(in: .horizontal) {
+                            HStack(spacing: 12) {
+                                noteButtons(episodeID: episode.id.rawValue, title: episode.title)
+                            }
+                            VStack(spacing: 12) {
+                                noteButtons(episodeID: episode.id.rawValue, title: episode.title)
+                            }
+                        }
                     }
                     .frame(maxWidth: metrics.contentWidth)
                     .padding(.horizontal, metrics.horizontalPadding)
@@ -270,6 +281,10 @@ struct NowPlayingView: View {
             .accessibilityAction(.escape) {
                 onDismiss()
             }
+            .sheet(item: $noteDraft, onDismiss: resumePlaybackAfterNote) { draft in
+                AddEpisodeNoteSheet(draft: draft)
+                    .modelContext(modelContext)
+            }
             .sheet(item: $utilitySheet) { sheet in
                 switch sheet {
                 case .speed:
@@ -290,6 +305,40 @@ struct NowPlayingView: View {
                         .modelContext(modelContext)
                         .presentationDetents([.medium, .large])
                         .presentationDragIndicator(.visible)
+                case .notes:
+                    NavigationStack {
+                        if let episode = appModel.playback.currentEpisode {
+                            ScrollView {
+                                EpisodeNotesSection(episodeID: episode.id.rawValue, showsHeading: false) { timestamp in
+                                    guard appModel.playback.currentEpisode?.id == episode.id else { return }
+                                    appModel.playback.seek(to: timestamp, intent: .scrub)
+                                    appModel.playback.play()
+                                    utilitySheet = nil
+                                }
+                                .padding()
+                            }
+                            .navigationTitle("My Notes")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .safeAreaInset(edge: .top) {
+                                Text(episode.title)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(2)
+                                    .padding(.horizontal)
+                                    .padding(.bottom, 8)
+                            }
+                            .toolbar {
+                                ToolbarItem(placement: .confirmationAction) {
+                                    Button("Done") { utilitySheet = nil }
+                                }
+                            }
+                        } else {
+                            ContentUnavailableView("Nothing Playing", systemImage: "play.circle")
+                        }
+                    }
+                    .modelContext(modelContext)
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.visible)
                 case .transcript:
                     NavigationStack {
                         if let currentEpisodeID {
@@ -360,6 +409,38 @@ struct NowPlayingView: View {
                 Text(message)
             }
         }
+    }
+
+    @ViewBuilder
+    private func noteButtons(episodeID: String, title: String) -> some View {
+        Button("Add Note", systemImage: "square.and.pencil") {
+            let shouldResume = appModel.playback.state.showsPauseButton
+            if shouldResume { appModel.playback.pause() }
+            let draft = EpisodeNoteDraft(
+                episodeID: episodeID,
+                episodeTitle: title,
+                timestamp: appModel.playback.position,
+                resumesPlaybackOnDismiss: shouldResume
+            )
+            notePlaybackResumeDraft = draft
+            noteDraft = draft
+        }
+        .buttonStyle(.glass)
+        .accessibilityIdentifier("Add Episode Note")
+        Button("Notes", systemImage: "note.text") {
+            utilitySheet = .notes
+        }
+        .buttonStyle(.glass)
+        .accessibilityIdentifier("Show Episode Notes")
+    }
+
+    private func resumePlaybackAfterNote() {
+        defer { notePlaybackResumeDraft = nil }
+        guard let draft = notePlaybackResumeDraft,
+              draft.resumesPlaybackOnDismiss,
+              appModel.playback.currentEpisode?.id.rawValue == draft.episodeID,
+              appModel.playback.state == .paused else { return }
+        appModel.playback.play()
     }
 
     private var showsPauseButton: Bool {

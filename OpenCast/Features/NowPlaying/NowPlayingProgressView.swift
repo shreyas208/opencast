@@ -6,6 +6,7 @@ struct NowPlayingProgressView: View {
     let displayedPosition: TimeInterval
     let zones: [PlaybackSkipZone]
     var displayOnlyZones: [PlaybackSkipZone] = []
+    var noteTimestamps: [TimeInterval] = []
     @Binding var scrubPosition: TimeInterval
     let onEditingChanged: (Bool) -> Void
 
@@ -16,6 +17,12 @@ struct NowPlayingProgressView: View {
                 in: 0...sliderUpperBound,
                 onEditingChanged: onEditingChanged
             )
+            .overlay {
+                NowPlayingNoteMarkers(duration: duration, timestamps: noteTimestamps)
+                    .allowsHitTesting(false)
+                    .accessibilityHidden(true)
+            }
+            .accessibilityHint(noteTimestamps.isEmpty ? "" : "Notes marked at " + noteTimestamps.sorted().map(EpisodeNoteTime.text).joined(separator: ", "))
             .accessibilityLabel("Playback Progress")
             .accessibilityIdentifier("Playback Progress")
             .accessibilityValue(progressAccessibilityValue)

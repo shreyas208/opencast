@@ -75,3 +75,15 @@ The Playback toggle defaults to off. It controls only Add Note and Private Notes
 - Add Note offers This Moment and Whole Episode. Whole Episode loads the existing note; Save creates or updates that single note.
 - Show the Episode Note first in Private Notes and episode details. Provide Edit Note and Delete Note; editing from the list does not change playback.
 - Whole-episode notes have no seek action or timeline marker. Existing timestamped notes retain their behavior.
+
+## Updated interaction requirements (October 10)
+
+- Playback Add Note and Private Notes are icon-only circular utility controls, retaining accessible labels.
+- Add Note opens a menu with Timestamped Note and Episode Note before editing; remove the in-editor scope toggle.
+- Editor titles are Add Private Note and Edit Private Note. Existing whole-episode notes load as edits.
+- The playback three-dot menu always includes Private Notes, even with note buttons hidden.
+- Playback Private Notes uses a trailing Share Notes icon instead of Done, with swipe and accessibility escape dismissal.
+- Both the playback pane and episode detail notes section export plain text using the standard share sheet, including Apple Notes. Order: episode title, show name, whole-episode text if any, timestamped notes in chronological order.
+- Episode Actions includes Add Episode Note as the last item before the download/transcript section. It supports whole-episode notes only, regardless of the note-buttons setting, without changing playback.
+- Settings Delete Data includes Delete All Private Notes with confirmation and failure reporting. Delete both note types for all episodes on this device, retaining other data.
+

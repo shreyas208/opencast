@@ -12,8 +12,11 @@ The user-facing feature name is **Private Notes**. This distinguishes listener-w
 | --- | --- |
 | Feature name and Playback settings section | Private Notes |
 | Playback settings toggle | Show Note Buttons |
-| Settings footer | Show Add Note and Private Notes in Now Playing. Saved notes always appear in episode details. |
-| Now Playing create button and editor title | Add Note |
+| Settings footer | Show note buttons in Now Playing. Saved notes are always available in episode details and the More Actions menu. Notes are stored on this device. |
+| Now Playing create button and new editor title | Add Private Note |
+| Existing note editor title | Edit Private Note |
+| Creation menu choices | Add Timestamped Note, Add Episode Note |
+| Export action inside Private Notes | Share Notes |
 | Now Playing list button and notes pane title | Private Notes |
 | Episode detail section heading when notes exist | Private Notes |
 | Editor actions | Save, Cancel |
@@ -87,3 +90,8 @@ The Playback toggle defaults to off. It controls only Add Note and Private Notes
 - Episode Actions includes Add Episode Note as the last item before the download/transcript section. It supports whole-episode notes only, regardless of the note-buttons setting, without changing playback.
 - Settings Delete Data includes Delete All Private Notes with confirmation and failure reporting. Delete both note types for all episodes on this device, retaining other data.
 
+## String consistency pass
+
+Private Notes names the feature. Timestamped Note and Episode Note distinguish the two scopes. Use verb-led Add Timestamped Note and Add Episode Note choices. Use Add/Edit Private Note for editor titles and the creation icon’s accessible name; contextual Edit Note, Delete Note and Share Notes stay concise within Private Notes. Single-note failures use Couldn’t Save/Delete Private Note; bulk deletion uses Couldn’t Delete Private Notes. The editor field is Private Note for VoiceOver, and the whole-episode row is Edit Episode Note. Sentence-case confirmation: Delete all private notes?
+
+The settings footer explains button visibility, alternate access, and device-local storage. The empty state points to both note types instead of assuming a timestamped note.
